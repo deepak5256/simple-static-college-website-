@@ -72,20 +72,19 @@ body {
 .slider {
     position: relative;
     height: 100%;
+    overflow: hidden;
+}
+
+.slide-track {
+    display: flex;
+    width: 100%; /* 100% * number of slides */
+    height: 100%;
+    animation: slideAnimation 12s infinite;
 }
 
 .slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+    flex: 0 0 100%;
     height: 100%;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-}
-
-.slide.active {
-    opacity: 1;
 }
 
 .slide img {
@@ -93,6 +92,16 @@ body {
     height: 100%;
     object-fit: cover;
 }
+
+@keyframes slideAnimation {
+    0%   { transform: translateX(0%); }
+    33%  { transform: translateX(0%); }
+    36%  { transform: translateX(-100%); }
+    66%  { transform: translateX(-100%); }
+    69%  { transform: translateX(-200%); }
+    100% { transform: translateX(-200%); }
+}
+
 
 .hero-content {
     position: absolute;
